@@ -1,6 +1,7 @@
 import torch
 from torch import nn
 
+
 class Model(nn.Module):
     def __init__(self, dataset):
         super(Model, self).__init__()
@@ -29,8 +30,11 @@ class Model(nn.Module):
         return logits, state
 
     def init_state(self, sequence_length):
-        return (torch.zeros(self.num_layers, sequence_length, self.lstm_size),
-                torch.zeros(self.num_layers, sequence_length, self.lstm_size))
+        return (
+            torch.zeros(self.num_layers, sequence_length, self.lstm_size),
+            torch.zeros(self.num_layers, sequence_length, self.lstm_size),
+        )
+
 
 class Model1(nn.Module):
     def __init__(self, dataset):
@@ -60,12 +64,13 @@ class Model1(nn.Module):
         return logits, state
 
     def init_state(self, sequence_length):
-        return (torch.zeros(self.num_layers, sequence_length, self.lstm_size),
-                torch.zeros(self.num_layers, sequence_length, self.lstm_size))
+        return (
+            torch.zeros(self.num_layers, sequence_length, self.lstm_size),
+            torch.zeros(self.num_layers, sequence_length, self.lstm_size),
+        )
 
 
 class Model2(nn.Module):
-
     def __init__(self, dataset):
         super(Model2, self).__init__()
         self.lstm_size = 40
@@ -93,6 +98,7 @@ class Model2(nn.Module):
         return logits, state
 
     def init_state(self, sequence_length):
-        return (torch.zeros(self.num_layers, sequence_length, self.lstm_size),
-                torch.zeros(self.num_layers, sequence_length, self.lstm_size))
-
+        return (
+            torch.zeros(self.num_layers, sequence_length, self.lstm_size),
+            torch.zeros(self.num_layers, sequence_length, self.lstm_size),
+        )
